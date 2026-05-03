@@ -1,24 +1,142 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SketchBuilder - Application Officielle</title>
-    <style>
-        body { font-family: sans-serif; text-align: center; padding: 50px; background: #f4f4f4; }
-        .card { background: white; padding: 30px; border-radius: 15px; display: inline-block; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        h1 { color: #333; }
-        .btn { background: #007bff; color: white; padding: 15px 25px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SWB Verification</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #6750A4;
+      --on-primary: #ffffff;
+      --bg: #0f0f14;
+      --card: rgba(255,255,255,0.08);
+      --stroke: rgba(255,255,255,0.12);
+      --text: #e6e6e6;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Roboto", sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #1a1a2e, var(--bg));
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--text);
+      overflow: hidden;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 420px;
+      padding: 28px;
+      border-radius: 28px;
+      background: var(--card);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--stroke);
+      text-align: center;
+      animation: fadeIn 1s ease;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    .logo {
+      width: 70px;
+      height: 70px;
+      margin-bottom: 16px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--primary), #9b87f5);
+      display: inline-block;
+      box-shadow: 0 10px 30px rgba(103,80,164,0.4);
+    }
+
+    h1 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 14px;
+      opacity: 0.8;
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    .btn {
+      display: inline-block;
+      width: 100%;
+      padding: 14px;
+      border-radius: 14px;
+      background: var(--primary);
+      color: var(--on-primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+      box-shadow: 0 10px 25px rgba(103,80,164,0.4);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(103,80,164,0.6);
+    }
+
+    .loader {
+      margin: 20px auto;
+      width: 40px;
+      height: 40px;
+      border: 4px solid rgba(255,255,255,0.2);
+      border-top: 4px solid var(--primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    .footer {
+      margin-top: 18px;
+      font-size: 12px;
+      opacity: 0.5;
+    }
+
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
+
 <body>
-    <div class="card">
-        <h1>SketchBuilder</h1>
-        <p>L'application de création ultime pour Android.</p>
-        <p>Disponible en Inde, Indonésie et Brésil !</p>
-        <a href="LIEN_DE_TON_APK" class="btn">Télécharger l'APK</a>
-        <hr>
-        <p><a href="politique-confidentialite.html">Politique de confidentialité</a></p>
+
+  <div class="container">
+    <div class="logo"></div>
+
+    <h1>Vérification du compte SWB</h1>
+
+    <p>
+      Nous traitons votre demande de vérification Firebase.<br>
+      Si votre application ne s’ouvre pas automatiquement, cliquez ci-dessous.
+    </p>
+
+    <div class="loader"></div>
+
+    <!-- Deep link Android -->
+    <a class="btn" href="swb://verify">
+      Ouvrir l’application
+    </a>
+
+    <div class="footer">
+      Powered by SWB • Material Web UI
     </div>
+  </div>
+
 </body>
 </html>
